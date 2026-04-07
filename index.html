@@ -927,7 +927,7 @@ EPL영어학원 정보:
 - 독자 체류시간을 높이는 스토리텔링 방식 활용`;
 
   try {
-    const res = await fetch('/.netlify/functions/claude', {
+    const res = await fetch('/api/claude', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ system: systemPrompt, messages: [{ role: 'user', content: userContent }] })
