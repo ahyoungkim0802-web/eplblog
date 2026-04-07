@@ -648,6 +648,11 @@ input::placeholder, textarea::placeholder { color: var(--text-hint); }
       </div>
     </div>
 
+    <!-- 기본값 저장 -->
+    <button id="save-default-btn" onclick="saveDefaults()" class="btn-outline" style="width:100%; padding:11px; font-size:13px; text-align:center;">
+      💾 현재 키워드 · 해시태그를 기본값으로 저장
+    </button>
+
     <div id="error-area"></div>
 
     <button class="btn-gen" id="gen-btn" onclick="generate()">
