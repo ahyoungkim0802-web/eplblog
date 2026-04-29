@@ -998,14 +998,14 @@ EPL영어학원 정보:
 - 독자 체류시간을 높이는 스토리텔링 방식 활용`;
 
   try {
-    const res = await fetch('/api/claude', {
+    const res = await fetch('https://bitter-leaf-eb4d.ahyoungkim0802.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ system: systemPrompt, messages: [{ role: 'user', content: userContent }] })
+      body: JSON.stringify({ model:'claude-haiku-4-5-20251001', max_tokens:3000, system: systemPrompt, messages: [{ role: 'user', content: userContent }] })
     });
 
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || `서버 오류 ${res.status}`);
+    if (data.error) throw new Error(data.error.message || data.error);
 
     generatedRaw = (data.content || []).map(b => b.text || '').join('');
     renderResult(generatedRaw);
